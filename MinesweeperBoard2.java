@@ -15,7 +15,7 @@ public class MinesweeperBoard2{
     int rows;
     int columns;
     boolean number = false;
-    public MinesweeperBoard2(int row, int column){
+    public MinesweeperBoard2(int row, int column, int bomb){
         //Put the constructor here.
         this.rows = row;
         this.columns = column;
@@ -23,14 +23,15 @@ public class MinesweeperBoard2{
         //These pieces are for the GUI.
         JFrame frame = new JFrame();
         frame.add(addCells());
-
+        addBombs(bomb);
+        addNums();
         frame.pack();
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
 
     public MinesweeperBoard2(){
-        this(10,10);
+        this(10, 10, 50);
     }
 
     public void addBombs(int bombs) {//throws Exception{
